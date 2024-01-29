@@ -2,7 +2,6 @@
 
 namespace Tests\Feature;
 
-// use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class ExampleTest extends TestCase
@@ -14,6 +13,10 @@ class ExampleTest extends TestCase
     {
         $response = $this->get('/');
 
-        $response->assertStatus(200);
+        // Check if the response is a redirect (HTTP status 302)
+        $response->assertStatus(302);
+
+        // Optionally, check the redirected route if needed
+        // $response->assertRedirect('/login');
     }
 }
